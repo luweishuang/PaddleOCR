@@ -7,4 +7,5 @@ tqdm
 numpy
 visualdl
 python-Levenshtein
+xmltodict
 opencv-contrib-python==4.2.0.32
