@@ -64,7 +64,7 @@ Train:
     name: SimpleDataSet
     data_dir: /data/pfc/barcode/Original/
     label_file_list:
-      - /data/pfc/barcode/Original/Original_Label_train.txt
+      - /data/pfc/barcode/Original_Label_train.txt
     ratio_list: [1.0]
     transforms:
       - DecodeImage: # load image
