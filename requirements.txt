@@ -8,4 +8,5 @@ numpy
 visualdl
 python-Levenshtein
 xmltodict
+pyyaml
 opencv-contrib-python==4.2.0.32

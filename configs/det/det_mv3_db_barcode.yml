@@ -107,7 +107,7 @@ Eval:
     name: SimpleDataSet
     data_dir: /data/pfc/barcode/Original/
     label_file_list:
-      - /data/pfc/barcode/Original/Original_Label_test.txt
+      - /data/pfc/barcode/Original_Label_test.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
