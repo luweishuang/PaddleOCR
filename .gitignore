@@ -1,3 +1,7 @@
+sen.pickle
+ckpts/
+pretrain_models/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 .ipynb_checkpoints/
