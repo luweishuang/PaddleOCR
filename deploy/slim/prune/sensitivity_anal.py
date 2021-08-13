@@ -110,7 +110,8 @@ def main(config, device, logger, vdl_writer):
     def eval_fn():
         metric = program.eval(model, valid_dataloader, post_process_class, eval_class, model_type)
         logger.info(f"metric['hmean']: {metric['hmean']}")
-        logger.info(f"metric['acc']: {metric['acc']}")
+        logger.info(f"metric['precision']: {metric['precision']}")
+        logger.info(f"metric['recall']: {metric['recall']}")
         return metric['hmean']
 
     params_sensitive = pruner.sensitive(
