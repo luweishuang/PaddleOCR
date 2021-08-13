@@ -51,7 +51,9 @@ def main(config, device, logger, vdl_writer):
         char_num = len(getattr(post_process_class, 'character'))
         config['Architecture']["Head"]['out_channels'] = char_num
     model = build_model(config['Architecture'])
-
+    model_type = None
+    if "model_type" in config['Architecture'].keys():
+        model_type = config['Architecture']['model_type']
     flops = paddle.flops(model, [1, 3, 640, 640])
     logger.info(f"FLOPs before pruning: {flops}")
 
@@ -63,8 +65,7 @@ def main(config, device, logger, vdl_writer):
     eval_class = build_metric(config['Metric'])
 
     def eval_fn():
-        metric = program.eval(model, valid_dataloader, post_process_class,
-                              eval_class)
+        metric = program.eval(model, valid_dataloader, post_process_class, eval_class, model_type)
         logger.info(f"metric['hmean']: {metric['hmean']}")
         return metric['hmean']
 
