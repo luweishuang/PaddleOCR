@@ -67,6 +67,7 @@ def main(config, device, logger, vdl_writer):
     def eval_fn():
         metric = program.eval(model, valid_dataloader, post_process_class, eval_class, model_type)
         logger.info(f"metric['hmean']: {metric['hmean']}")
+        logger.info(f"metric['acc']: {metric['acc']}")
         return metric['hmean']
 
     params_sensitive = pruner.sensitive(
@@ -91,8 +92,7 @@ def main(config, device, logger, vdl_writer):
 
     # load pretrain model
     pre_best_model_dict = init_model(config, model, logger, None)
-    metric = program.eval(model, valid_dataloader, post_process_class,
-                          eval_class)
+    metric = program.eval(model, valid_dataloader, post_process_class, eval_class)
     logger.info(f"metric['hmean']: {metric['hmean']}")
 
     # start export model
